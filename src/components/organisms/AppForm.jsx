@@ -1,19 +1,20 @@
- import React from 'react';
- import FloatingButton from '../atoms/FloatingButton';
- import styled from 'styled-components';
+import React from 'react';
+import FloatingButton from '../atoms/FloatingButton';
+import styled from 'styled-components';
+import Popup from '../atoms/Popup';
 
- const AppForm = (props) => {
-     const {
+const AppForm = (props) => {
+    const {
 
-     } = props;
+    } = props;
 
-     return (
-         <>
+    return (
+        <>
             <FloatingButton
-                onClick={() => {}}
+                onClick={() => { }}
             />
-         </>
-     );
- }
+        </>
+    );
+}
 
- export default AppForm;
+export default AppForm;
