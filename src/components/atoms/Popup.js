@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from '@material-ui/core/Button'
 
 export default function Popup(props) {
     const {
@@ -11,11 +12,45 @@ export default function Popup(props) {
             <Popupfiled>
                 <PopupInner>
                     {children}
+                    <Position>
+                        <Margin>
+                            <Button
+                                disabled={false}
+                                style={{ paddingRight: "8px", fontWeight: "bold" }}
+                                variant="outlined"
+                                onClick={() => {
+
+                                }}>
+                            </Button>
+                        </Margin>
+                        <Margin>
+                            <Button
+                                style={{ fontWeight: "bold", backgroundColor: `#ffff` }}
+                                disabled={false}
+                                variant="outlined"
+                                onClick={() => {
+
+                                }}
+                            >登録</Button>
+                        </Margin>
+                    </Position>
                 </PopupInner>
             </Popupfiled>
         </>
     )
 }
+
+const Position = styled.div`
+    display: flex;
+    margin-right; 32px;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+`
+
+const Margin = styled.div`
+    margin left: 10px;
+    display: inline-block;
+`
 
 const Popupfiled = styled.div`
     position: fixed;
