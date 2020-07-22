@@ -21,6 +21,7 @@ export default function Popup(props) {
                                 onClick={() => {
 
                                 }}>
+                                閉じる
                             </Button>
                         </Margin>
                         <Margin>
@@ -31,7 +32,7 @@ export default function Popup(props) {
                                 onClick={() => {
 
                                 }}
-                            >登録</Button>
+                            >入金</Button>
                         </Margin>
                     </Position>
                 </PopupInner>
@@ -79,4 +80,3 @@ const PopupInner = styled.div`
     max-width: 700px;
     border-radius: 20px;
 `
-

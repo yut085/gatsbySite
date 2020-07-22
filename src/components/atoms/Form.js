@@ -1,20 +1,24 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import 'date-fns';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtil from '@date-io/date-fns';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+import ClearIcon from '@material-ui/icons/Clear';
 import {
     KeyboardTimePicker,
-    MultipickersUtilsprovider
+    MuiPickersUtilsProvider
 } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
+import styled from 'styled-components';
 
-const useStyle = makeStyles(theme => ({
+const iconStyles = makeStyles(theme => ({
     root: {
         color: "green"
     }
 }))
-const useStyle = makestyles(theme => ({
+const useStyles = makeStyles(theme => ({
 
     container: {
         justifyContent: 'left',
@@ -34,23 +38,16 @@ const useStyle = makestyles(theme => ({
     menu: {
         width: 200,
     },
-    report: {
-        fontSize: "20px",
-        fontweight: "bold",
-        display: "relative",
-        position: "relative",
-        left: "30px",
-        top: "20px"
-    }
 }));
 
-export default function MultipickersUtilsprovider(props) {
+export default function MultipleTextFilelds(props) {
     const classes = useStyles();
+    const iconClasses = iconStyles();
     const now = new Date();
-    let montn = now.getMonth() + 1;
+    let month = now.getMonth() + 1;
     let day = now.getDate();
-    if (montn < 10) {
-        month = "0" + montn;
+    if (month < 10) {
+        month = "0" + month;
     }
     if (day < 10) {
         day = "0" + day;
@@ -59,7 +56,76 @@ export default function MultipickersUtilsprovider(props) {
     const [selectedDate2, setSelectedDate2] = React.useState(new Date(`${now.getFullYear()}/${month}/${day} 19:00`));
 
     const {
-        reports
+
     } = props;
-    const keys = reports
+
+    return (
+        <>
+        <Position>
+            <Margin>
+                <ClearIcon
+                    variant="outlined"
+                />
+            </Margin>
+        </Position>
+
+        <div className={classes.root}><MenuBookIcon className={iconClasses.root} fontSizeLarge />金額入力</div>
+        <form className={classes.container} noValidate autoComplete="off">
+            <MuiPickersUtilsProvider utils={DateFnsUtil}>
+                <Grid>
+                    <KeyboardTimePicker className={classes.textField}
+                    margin="normal"
+                    id="time-picker"
+                    label="出勤時間"
+                    value={selectedDate}
+                    onChange={() => {
+
+                    }}
+                    />
+                </Grid>
+            </MuiPickersUtilsProvider>
+
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <Grid>
+                    <KeyboardTimePicker className={classes.textField}
+                    margin="normal"
+                    id="time-picker"
+                    label="退勤時間"
+                    value={selectedDate2}
+                    onChange={() => {
+
+                    }}
+                    />
+                </Grid>
+            </MuiPickersUtilsProvider>
+
+            <TextField
+                    placeholder=""
+                    multiline
+                    className={classes.textField}
+                    margin="normal"
+                    variant="outlined"
+                    rowsMax="5"
+                    rows="5"
+                    onChange={() => {
+
+                    }}
+            />
+        </form>
+        </>
+    )
 }
+
+const Margin = styled.div`
+    margin-right: 10px;
+    margin-top: 5px;
+    display: inline-block;
+`
+
+const Position = styled.div`
+    display: flex;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    justify-content: flex-end;
+`

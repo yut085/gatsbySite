@@ -80,7 +80,7 @@ export default function App() {
                         <MenuIcon />
                     </IconButton>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        学年費計算App
+                        会計App
           </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
